@@ -1,0 +1,19 @@
+<div *ngIf="restaurante" class="restaurante-box">
+	
+		<div class="image">
+				<img  class="image-restaurante-detail" width="200px"  src="http://localhost:8080/SpringBootCRUDApp/apiv1/files/{{restaurante.imagen}}" *ngIf="restaurante.imagen!=null">
+			</div>
+	
+	<div class="data-rest">
+		<h2>Restaurante {{restaurante.nombre}}</h2>
+		<p class="precio">23
+			<span [ngSwitch]="restaurante.precio">
+				<span *ngSwitchWhen="'bajo'">Entre 2.50 y 4</span>
+				<span *ngSwitchWhen="'normal'">Entre 4.50 y 9 </span>
+				<span *ngSwitchWhen="'alto'">Entre 7.50 y 20</span>
+			</span>
+		</p>
+		<p class="direccion">{{restaurante.direccion}}</p>
+		<p class="descripcion">{{restaurante.descripcion}}</p>
+	</div>
+</div>

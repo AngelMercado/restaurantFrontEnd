@@ -1,0 +1,26 @@
+<h1>{{titulo}}</h1>
+<ul id="restaurantes-list">
+		<li class="loading">
+			<img src="../../assets/images/ajax-loader.gif">
+		</li>
+		<li *ngFor="#restaurante of restaurantes" class="restaurante-item">
+			<div class="image">
+				<img src="http://localhost:8080/SpringBootCRUDApp/apiv1/files/{{restaurante.imagen}}" *ngIf="restaurante.imagen!=null">
+			</div>
+			<div class="data">
+				<h4>{{restaurante.nombre}}</h4>
+				<p>{{restaurante.direccion}}</p>
+				<p>
+					<a [routerLink]="['Restaurante',{id:restaurante.id}]" class="btn btn-ver">Ver</a>
+					<a [routerLink]="['EditarRestaurante',{id:restaurante.id}]" class="btn btn-editar">Editar</a>
+					<a (click)="onConfirmar(restaurante.id)" class="btn btn-eliminar">Eliminar</a>
+
+				</p>
+				<div class="seguro" *ngIf="confirmado===restaurante.id">
+					<a (click)="onBorrarRestaurante(restaurante.id)" class="btn btn-eliminar">Eliminar</a>
+					<a (click)="onCancelar(restaurante.id)" class="btn btn-cancelar">Cancelar</a>
+				</div>
+			</div>
+	
+		</li>
+</ul>

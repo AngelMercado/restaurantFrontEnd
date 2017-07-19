@@ -1,0 +1,16 @@
+<header>
+	<a [routerLink]="['Home']"><img src="../../assets/images/angularLogo.png" id="logo"></a>
+	<h1>{{titulo}}</h1>
+	<div class="clearfix"></div>
+</header>
+<nav id="nav">
+	<ul>
+		<li><a [routerLink]="['Home']">Home</a></li>
+		<li><a [routerLink]="['CrearRestaurante']">Crear Restaurante</a></li>		
+		<li><a [routerLink]="['DondeComoHoy',{random:'true'}]">¿Donde como  hoy?</a></li>
+	</ul>
+</nav>
+<section class="main">
+	<router-outlet></router-outlet>
+	<div class="clearfix"></div>
+</section>
